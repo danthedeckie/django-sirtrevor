@@ -1,6 +1,5 @@
 from django.db import models
-from django.utils.six import with_metaclass, text_type
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from . import SirTrevorContent
 from .forms import SirTrevorFormField
 
@@ -22,4 +21,4 @@ class SirTrevorField(models.Field):
         return SirTrevorContent(value)
 
     def get_db_prep_value(self, value, connection, prepared=False):
-        return text_type(value)
+        return str(value)
